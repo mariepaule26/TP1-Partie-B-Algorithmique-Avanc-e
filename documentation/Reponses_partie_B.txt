@@ -1,0 +1,53 @@
+TP1 - PARTIE B : REPONSES
+====================================
+
+QUESTION 1 - Completer welshPowell
+-----------------------------------
+Dans le code de depart, le tableau verticesOrder etait reserve mais pas
+rempli. Il fallait donc calculer les degres, mettre les sommets dans ce
+tableau, puis les trier par degre decroissant.
+
+J'ai aussi ajoute le test qui permet de ne pas recolorer un sommet deja
+traite. La condition de depart contenait une erreur de syntaxe :
+'if !neighborUsingColor(...)' devient
+'if (!neighborUsingColor(...))'.
+
+Les couleurs sont remises a -1 avant chaque execution. J'ai egalement
+ajoute addEdge pour creer les aretes dans les deux sens et gere les
+erreurs d'allocation. Le tri par insertion prend O(n^2). Avec la matrice
+d'adjacence, le test des voisins prend O(n), donc le pire cas de
+l'algorithme est en O(n^3). Le tableau d'ordre utilise O(n) memoire en
+plus de la matrice.
+
+QUESTION 2 - Les deux exemples
+------------------------------
+1. Cycle impair C7
+
+Le graphe contient les sommets 0 a 6 et les aretes entre deux sommets
+successifs, avec une arete entre 6 et 0. Tous les sommets ont le degre 2.
+
+Un cycle impair ne peut pas etre colore avec seulement deux couleurs.
+Trois couleurs suffisent, donc chi(C7)=3. Le programme trouve bien
+3 couleurs. Le fichier est graphes/cycle_C7.dot.
+
+2. Graphe couronne H6
+
+J'ai utilise deux groupes de six sommets a_i et b_i. Chaque a_i est
+relie a tous les b_j sauf b_i. Les sommets sont numerotes
+a1=0, b1=1, a2=2, b2=3, etc.
+
+Tous les sommets ont le degre 5. Comme les degres sont egaux, l'ordre
+des indices est conserve. Welsh-Powell met alors a1 et b1 dans une
+couleur, puis a2 et b2 dans une autre, et ainsi de suite. Il utilise
+6 couleurs.
+
+Le graphe est biparti et il possede des aretes, donc son nombre
+chromatique vaut 2. Ce deuxieme exemple montre que Welsh-Powell peut
+utiliser beaucoup plus de couleurs que le minimum. Le fichier est
+graphes/couronne_H6.dot.
+
+VERIFICATION
+------------
+Le programme verifie que deux sommets relies ne recoivent pas la meme
+couleur. Les tests verifient aussi les degres, le nombre de couleurs et
+la possibilite de relancer l'algorithme sur le meme graphe.

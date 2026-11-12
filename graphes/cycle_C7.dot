@@ -1,0 +1,18 @@
+graph G {
+  graph [layout=neato, overlap=false, splines=true];
+  node [shape=circle, style=filled, fontname=Arial];
+  0 [fillcolor="#e76f51", label="0 (c0)"];
+  1 [fillcolor="#457b9d", label="1 (c1)"];
+  2 [fillcolor="#e76f51", label="2 (c0)"];
+  3 [fillcolor="#457b9d", label="3 (c1)"];
+  4 [fillcolor="#e76f51", label="4 (c0)"];
+  5 [fillcolor="#457b9d", label="5 (c1)"];
+  6 [fillcolor="#80b918", label="6 (c2)"];
+  0 -- 1;
+  0 -- 6;
+  1 -- 2;
+  2 -- 3;
+  3 -- 4;
+  4 -- 5;
+  5 -- 6;
+}

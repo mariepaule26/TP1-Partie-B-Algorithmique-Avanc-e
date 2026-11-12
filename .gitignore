@@ -1,0 +1,9 @@
+# Fichiers compiles
+*.exe
+*.o
+
+# Fichiers temporaires
+*.log
+
+# Configuration locale des editeurs
+.vscode/
